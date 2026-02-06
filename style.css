@@ -1,4 +1,4 @@
-
+    
         .do {
             height: 100px;
             width: 100px;
@@ -37,11 +37,6 @@
 
             border-right: 10px solid yellow;
         }
-
-        /* .div1 {
-
-            text-decoration: line-through double red 2px;
-        } */
         .div1 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -215,5 +210,17 @@
         bottom :40px;
         font-size: 25px;
         color:orange;
+      }
+      #player1{
+        height: 20px;
+        width: 50px;
+        border-radius: 6px;
+        background: gold;
+      }
+      #player2{
+        height: 20px;
+        width: 50px;
+        border-radius: 6px;
+        background: gold;
       }
     
