@@ -1,11 +1,235 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <style>        
+        .do {
+            height: 100px;
+            width: 100px;
+            font-size: 70px;
+            text-align: center;
+
+        }
+
+        #box2 {
+            border-left: 10px solid yellow;
+
+            border-right: 10px solid yellow;
+        }
+
+        #box4 {
+            border-top: 10px solid yellow;
+            border-bottom: 10px solid yellow;
+
+        }
+
+        #box5 {
+            border-top: 10px solid yellow;
+            border-left: 10px solid yellow;
+            border-bottom: 10px solid yellow;
+            border-right: 10px solid yellow;
+        }
+
+        #box6 {
+            border-top: 10px solid yellow;
+            border-bottom: 10px solid yellow;
+
+        }
+
+        #box8 {
+            border-left: 10px solid yellow;
+
+            border-right: 10px solid yellow;
+        }
+        .div1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            position: relative;
+            height: 300px;
+            width: 300px;
+            justify-content: center;
+            
+        }
+
+        #main {
+            background-color: blueviolet;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid blue;
+        }
+
+        #you_me {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 10px;
+
+        }
+        .me-you{
+            width: 100px;
+            height: 40px;
+            font-size:25px ;
+            background-color: bisque;
+            color: rgb(213, 35, 35);
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0px 5px 10px 2px rgb(67, 62, 62);
+            align-items: center;
+            
+        }
+        span{
+            font-size: 30px;
+            text-align: right;
+        }
+        #reset{
+            position: relative;
+            top:80px;
+            width: 120px;
+            height: 40px;
+            font-size: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 5px 10px 2px rgb(67, 62, 62);
+            background-color: aqua;
+        }
+        #result{
+            color: aqua;
+        }
+        .do{
+             text-shadow: 0px 5px 10px 2px rgb(67, 62, 62);
+        }
+        .line-d1 {
+        position: absolute;
+        left: 50.5%;
+        top: 5.3%;
+        transform: rotate(-45deg);
+        width: 10px;
+        height: 0;
+        background: rgb(85, 0, 255);
+        animation: growD linear forwards;
+      }
+      .line-d2 {
+        position: absolute;
+        left: 49.5%;
+        top: 3%;
+        transform: rotate(45deg);
+        width: 10px;
+        height: 0;
+        background: rgb(85, 0, 255);
+        animation: growD linear forwards;
+      }
+      @keyframes growD {
+        from {
+          height: 0%;
+        }
+        to {
+          height: 100%;
+        }
+      }
+      .line-fc {
+        position: absolute;
+        left: 13.7%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 0;
+
+        background: yellowgreen;
+        animation: growDown linear forwards;
+      }
+
+
+      .line-sc {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 0;
+        background: red;
+        animation: growDown linear forwards;
+      }
+
+      .line-tc {
+        position: absolute;
+        left: 86.5%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 0;
+        background: orange;
+        animation: growDown linear forwards;
+      }
+
+      @keyframes growDown {
+        from {
+          height: 0%;
+        }
+
+        to {
+          height: 100%;
+        }
+      }
+      .line-fr {
+        position: absolute;
+        top: -33.5%;
+        left :48%;
+        transform: rotate(90deg);
+        width: 10px;
+        height: 0;
+        background: orange;
+        animation: grow linear forwards;
+      }
+      .line-sr {
+        position: absolute;
+        top: 3.5%;
+        left: 48%;
+        transform: rotate(90deg);
+        width: 10px;
+        height: 0;
+        background: orange;
+        animation: grow linear forwards;
+      }
+      .line-tr {
+        position: absolute;
+        top: 40%;
+        left: 48%;
+        transform: rotate(90deg);
+        width: 10px;
+        height: 0;
+
+        background: orange;
+        animation: grow linear forwards ;
+      }
+      @keyframes grow{
+        from{
+          height: 0%
+        }
+        to{
+          height: 100%;
+        }
+      }
+      .result-list{
+        position: relative;
+        bottom :40px;
+        font-size: 25px;
+        color:orange;
+      }
+      #player1{
+        height: 20px;
+        width: 50px;
+        border-radius: 6px;
+        background: gold;
+      }
+      #player2{
+        height: 20px;
+        width: 50px;
+        border-radius: 6px;
+        background: gold;
+      }
+    </style>
 </head>
 
 <body>
@@ -14,39 +238,45 @@
             <button class="me-you">
         <select id="player1">
           <option value="p">❌</option>
-          <option value="p1">🕷️</option>
+          <option value="p1">⚽</option>
           <option value="p2">⭕</option>
-          <option value="p3">🧿</option>
-          <option value="p4">🦬</option>
-          <option value="p5">🦕</option>
-          <option value="p6">🐞</option>
+          <option value="p3">🌞</option>
+          <option value="p4">🌝</option>
+          <option value="p5">♠️</option>
+          <option value="p6">♣️</option>
+          <option value="p7">♥️</option>
+          <option value="p8">♦️</option>
+          <option value="p9">✖️</option>
+          <option value="p10">✔️</option>
+          <option value="p11">✅</option>
+          <option value="p12">❎</option>
+          <option value="p13">♾️</option>
+          
         </select>
         <span id="count1"></span>
         </button>
         <button class="me-you">
+            
         <select id="player2">
           <option value="r">⭕</option>
-          <option value="r1">🐛</option>
+          <option value="r1">⚽</option>
           <option value="r2">❌</option>
-          <option value="r3">🦦</option>
-          <option value="r4">🐳</option>
-          <option value="r5">🦎</option>
-          <option value="r6">🐦‍🔥</option>
+          <option value="r3">🌞</option>
+          <option value="r4">🌝</option>
+          <option value="r5">♠️</option>
+          <option value="r6">♣️</option>
+          <option value="r7">♥️</option>
+          <option value="r8">♦️</option>
+          <option value="r9">✖️</option>
+          <option value="r10">✔️</option>
+          <option value="r11">✅</option>
+          <option value="r12">❎</option>
+          <option value="r12">♾️</option>
         </select>
          <span id="count2"></span>
          </button>
       </div>
 
-        <!-- <div id="you_me">
-            <button class="me-you">
-                ❌
-                <span id="count1"></span>
-            </button>
-            <button class="me-you">
-                ⭕
-                <span id="count2"></span>
-            </button>
-        </div> -->
 
         <div class="div1">
             <div class="do" id="box1"></div>
@@ -64,10 +294,413 @@
         </div>
     </div>
 
-   <script src="script.js"></script>
+   <script>
+        
+        let main = document.querySelector("#main");
+        let box1 = document.querySelector("#box1");
+        let box2 = document.querySelector("#box2");
+        let box3 = document.querySelector("#box3");
+        let box4 = document.querySelector("#box4");
+        let box5 = document.querySelector("#box5");
+        let box6 = document.querySelector("#box6");
+        let box7 = document.querySelector("#box7");
+        let box8 = document.querySelector("#box8");
+        let box9 = document.querySelector("#box9");
+        let div1 = document.querySelector(".div1")
+        let me = document.querySelector("#me");
+        let you = document.querySelector("#you");
+        let c1 = document.querySelector("#count1");
+        let c2 = document.querySelector("#count2");
+        let reset = document.querySelector("#reset");
+        let player1= document.querySelector("#player1");
+        let player2 = document.querySelector("#player2");
+        let result = document.createElement("p");
+        result.classList.add("result-list");
+        main.appendChild(result)
+        let div = document.createElement("div")
+        div1.appendChild(div)
+        let m =0;
+        let y =0;
+        let t = true;
+        let b1 = "";
+        let b2 = "";
+        let b3 = "";
+        let b4 = "";
+        let b5 = "";
+        let b6 = "";
+        let b7 = "";
+        let b8 = "";
+        let b9 = "";
+        let ar =["❌","⚽","⭕","🌞","🌝","♠️","♣️","♥️","♦️","✖️","✔️","✅","❎"]
+      let ar1 =["⭕","⚽","❌","🌞","🌝","♠️","♣️","♥️","♦️","✖️","✔️","✅","❎"]
+      
+      let character1=()=>{
+        if(player1.value=="p"){
+              n=ar[0]
+            }
+               else if( player1.value== "p1"){
+             n=ar[1]
+            }
+          else if( player1.value== "p2"){
+             n=ar[2]
+            }
+            else if( player1.value== "p3"){
+             n=ar[3]
+            }
+            else if( player1.value== "p4"){
+             n=ar[4]
+            }
+            else if( player1.value== "p5"){
+             n=ar[5]
+            }
+            else if( player1.value== "p6"){
+             n=ar[6]
+            }
+            else if( player1.value== "p7"){
+             n=ar[7]
+            }
+            else if( player1.value== "p8"){
+             n=ar[8]
+            }
+            else if( player1.value== "p9"){
+             n=ar[9]
+            }
+            else if( player1.value== "p10"){
+             n=ar[10]
+            }
+            else if( player1.value== "p11"){
+             n=ar[11]
+            }
+            else if( player1.value== "p12"){
+             n=ar[12]
+            }
+            else if( player1.value== "p13"){
+             n=ar[13]
+            }
+      }
+      let character2=()=>{
+        if(player2.value=="r"){
+              n=ar1[0]
+            }
+               else if( player2.value== "r1"){
+             n=ar1[1]
+            }
+            else if( player2.value== "r2"){
+             n=ar1[2]
+            }
+            else if( player2.value== "r3"){
+             n=ar1[3]
+            }
+            else if( player2.value== "r4"){
+             n=ar1[4]
+            }
+            else if( player2.value== "r5"){
+             n=ar1[5]
+            }
+            else if( player2.value== "r6"){
+             n=ar1[6]
+            }
+            else if( player2.value== "r7"){
+             n=ar1[7]
+            }
+            else if( player2.value== "r8"){
+             n=ar1[8]
+            }
+            else if( player2.value== "r9"){
+             n=ar1[9]
+            }
+            else if( player2.value== "r10"){
+             n=ar1[10]
+            }
+            else if( player2.value== "r11"){
+             n=ar1[11]
+            }
+            else if( player2.value== "r12"){
+             n=ar1[12]
+            }
+            else if( player2.value== "r13"){
+             n=ar1[13]
+            }
 
+      }
+        function list(){
 
+        box1.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b1==""){
+            if (p == true) {
+                character1()
+                box1.innerText = n;
+                t = !t;
+                console.log("result", box1.contains)
+                b1 ="x";
+            }
+            else {
+                character2()
+                box1.textContent = n;
+                t = !t;
+                b1 ="o";
+            }
+        }
+        
+            checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            // box1.disable =true;
+            console.log("box1",b1)
+        };
+        box2.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b2==""){
+            if (p == true) {
+                character1()
+                box2.textContent = n;
+                t = !t;
+                b2 ="x";
+            }
+            else {
+                character2()
+                box2.textContent = n;
+                t = !t;
+                b2 ="o";
+            }
+        }
+            console.log("box2",b2)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box2.disable =true
+        };
+        box3.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b3==""){
+            if (p == true) {
+                character1()
+                box3.textContent = n;
+                t = !t;
+                b3 ="x";
+            }
+            else {
+                character2()
+                box3.textContent = n;
+                t = !t;
+                b3 ="o";
+            }
+        }
+            console.log("box3",b3)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box3.disable =true
+        };
+        box4.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b4==""){
+            if (p == true) {
+                character1()
+                box4.textContent = n;
+                t = !t;
+                b4 ="x";
+            }
+            else {
+                character2()
+                box4.textContent = n;
+                t = !t;
+                b4 ="o";
+            }
+        }
+            console.log("box4",b4)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box4.disable =true
+        };
+        box5.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b5==""){
+            if (p == true) {
+                character1()
+                box5.textContent = n;
+                t = !t;
+                b5 ="x";
+            }
+            else {
+                character2()
+                box5.textContent = n;
+                t = !t;
+                b5 ="o";
+            }
+        }
+            console.log("box5",b5)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box5.disable =true
+        };
+        box6.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b6==""){
+            if (p == true) {
+                character1()
+                box6.textContent = n;
+                t = !t;
+                b6 ="x";
+            }
+            else {
+                character2()
+                box6.textContent = n;
+                t = !t;
+                b6 ="o";
+            }
+        }
+            console.log("box6",b6)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box6.disable =true
+        };
+        box7.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b7==""){
+            if (p == true) {
+                character1()
+                box7.textContent = n;
+                t = !t;
+                b7 ="x";
+            }
+            else {
+                character2()
+                box7.textContent = n;
+                t = !t;
+                b7 ="o";
+            }
+        }
+            console.log("box7",b7)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+           
+        };
+        box8.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b8==""){
+            if (p == true) {
+                character1()
+                box8.textContent = n;
+                t = !t;
+                b8 ="x";
+            }
+            else {
+                character2()
+                box8.textContent = n;
+                t = !t;
+                b8 ="o";
+            }
+        }
+            console.log("box8".b8)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+           
+        };
+        box9.onclick = () => {
+            let p = t;
+            let p2 = t;
+            if(b9==""){
+            if (p == true) {
+                character1()
+                box9.textContent = n;
+                t = !t;
+                b9 ="x";
+            }
+            else {
+                character2()
+                box9.textContent = n;
+                t = !t;
+                b9 ="o";
+            }
+        }
+            console.log("box9",b9)
+             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+           
+        };
+       
+    }
+        list()
+        function checklist() {
+    console.log("b1:", b1, "b2:", b2, "b3:", b3);
 
+    
+    const wins = [
+        { cells: [b1, b2, b3], line: "line-fr", boxes: [box1, box2, box3] },
+        { cells: [b4, b5, b6], line: "line-sr", boxes: [box4, box5, box6] },
+        { cells: [b7, b8, b9], line: "line-tr", boxes: [box7, box8, box9] },
+        { cells: [b1, b4, b7], line: "line-fc", boxes: [box1, box4, box7] },
+        { cells: [b2, b5, b8], line: "line-sc", boxes: [box2, box5, box8] },
+        { cells: [b3, b6, b9], line: "line-tc", boxes: [box3, box6, box9] },
+        { cells: [b1, b5, b9], line: "line-d1", boxes: [box1, box5, box9] },
+        { cells: [b3, b5, b7], line: "line-d2", boxes: [box3, box5, box7] }
+    ];
+
+    
+    for (let win of wins) {
+        if ((win.cells[0] === 'x' && win.cells[1] === 'x' && win.cells[2] === 'x') ||
+            (win.cells[0] === 'o' && win.cells[1] === 'o' && win.cells[2] === 'o')) {
+            
+            div.classList.add(win.line);
+            
+            if (win.cells[0] === 'x') {
+                c1.innerText = ++m;
+            } else {
+                c2.innerText = ++y;
+            }
+            
+            result.innerText = `Congratulations, Winner is ${n}!`;
+            disableGame();
+            userGift();
+            return; 
+        }
+    }
+
+   
+    if (b1 && b2 && b3 && b4 && b5 && b6 && b7 && b8 && b9) {
+        result.innerText = 'Draw!';
+        disableGame();
+    }
+
+    userGift();
+}
+
+function disableGame() {
+   
+    [box1, box2, box3, box4, box5, box6, box7, box8, box9].forEach(box => {
+        box.disabled = true;
+        box.style.pointerEvents = 'none'; 
+    });
+}
+
+reset.addEventListener('click', () => {
+    [box1, box2, box3, box4, box5, box6, box7, box8, box9].forEach(box => {
+        box.textContent = '';
+        box.disabled = false;
+        box.style.pointerEvents = 'auto';
+    });
+
+    
+    b1 = b2 = b3 = b4 = b5 = b6 = b7 = b8 = b9 = '';
+    
+    div.classList.remove("line-fr", "line-sr", "line-tr", "line-fc", "line-sc", "line-tc", "line-d1", "line-d2");
+    result.innerText = '';
+});
+function userGift() {
+    let giftMessage = '';
+    
+    if (m === 5) {
+        giftMessage = ' 🎩 You unlocked a Hat!';
+    } else if (m === 10) {
+        giftMessage = ' 🕶️ You unlocked Sunglasses!';
+    } 
+    
+    else if (y === 5) {
+        giftMessage = ' 🎩 You unlocked a Hat!';
+    } else if (y === 10) {
+        giftMessage = ' 🕶️ You unlocked Sunglasses!';
+    } 
+    
+    result.innerText += giftMessage;
+}
+   </script>
 </body>
-
 </html>
