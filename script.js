@@ -1,5 +1,4 @@
- 
-        let main = document.querySelector("#main");
+  let main = document.querySelector("#main");
         let box1 = document.querySelector("#box1");
         let box2 = document.querySelector("#box2");
         let box3 = document.querySelector("#box3");
@@ -34,8 +33,9 @@
         let b7 = "";
         let b8 = "";
         let b9 = "";
-        let ar =["❌","🕷️","⭕","🧿","🦬","🦕","🐞"]
-      let ar1 =["⭕","🐛","❌","🦦","🐳","🦎","🐦‍🔥"]
+        let ar =["❌","⚽","⭕","🌞","🌝","♠️","♣️","♥️","♦️","✖️","✔️","✅","❎"]
+      let ar1 =["⭕","⚽","❌","🌞","🌝","♠️","♣️","♥️","♦️","✖️","✔️","✅","❎"]
+      
       let character1=()=>{
         if(player1.value=="p"){
               n=ar[0]
@@ -57,6 +57,27 @@
             }
             else if( player1.value== "p6"){
              n=ar[6]
+            }
+            else if( player1.value== "p7"){
+             n=ar[7]
+            }
+            else if( player1.value== "p8"){
+             n=ar[8]
+            }
+            else if( player1.value== "p9"){
+             n=ar[9]
+            }
+            else if( player1.value== "p10"){
+             n=ar[10]
+            }
+            else if( player1.value== "p11"){
+             n=ar[11]
+            }
+            else if( player1.value== "p12"){
+             n=ar[12]
+            }
+            else if( player1.value== "p13"){
+             n=ar[13]
             }
       }
       let character2=()=>{
@@ -81,6 +102,27 @@
             else if( player2.value== "r6"){
              n=ar1[6]
             }
+            else if( player2.value== "r7"){
+             n=ar1[7]
+            }
+            else if( player2.value== "r8"){
+             n=ar1[8]
+            }
+            else if( player2.value== "r9"){
+             n=ar1[9]
+            }
+            else if( player2.value== "r10"){
+             n=ar1[10]
+            }
+            else if( player2.value== "r11"){
+             n=ar1[11]
+            }
+            else if( player2.value== "r12"){
+             n=ar1[12]
+            }
+            else if( player2.value== "r13"){
+             n=ar1[13]
+            }
 
       }
         function list(){
@@ -103,8 +145,9 @@
                 b1 ="o";
             }
         }
+        
             checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
-
+            // box1.disable =true;
             console.log("box1",b1)
         };
         box2.onclick = () => {
@@ -126,6 +169,7 @@
         }
             console.log("box2",b2)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box2.disable =true
         };
         box3.onclick = () => {
             let p = t;
@@ -146,6 +190,7 @@
         }
             console.log("box3",b3)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box3.disable =true
         };
         box4.onclick = () => {
             let p = t;
@@ -166,6 +211,7 @@
         }
             console.log("box4",b4)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box4.disable =true
         };
         box5.onclick = () => {
             let p = t;
@@ -186,6 +232,7 @@
         }
             console.log("box5",b5)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box5.disable =true
         };
         box6.onclick = () => {
             let p = t;
@@ -206,13 +253,14 @@
         }
             console.log("box6",b6)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+            //  box6.disable =true
         };
         box7.onclick = () => {
             let p = t;
             let p2 = t;
             if(b7==""){
             if (p == true) {
-                character1
+                character1()
                 box7.textContent = n;
                 t = !t;
                 b7 ="x";
@@ -226,6 +274,7 @@
         }
             console.log("box7",b7)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+           
         };
         box8.onclick = () => {
             let p = t;
@@ -246,6 +295,7 @@
         }
             console.log("box8".b8)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+           
         };
         box9.onclick = () => {
             let p = t;
@@ -266,284 +316,92 @@
         }
             console.log("box9",b9)
              checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9);
+           
         };
-        // checklist(b1,b2,b3,b4,b5,b6,b7,b8,b9)
+       
     }
- list()
-        function checklist(){
+        list()
+        function checklist() {
+    console.log("b1:", b1, "b2:", b2, "b3:", b3);
 
-        console.log("b1 :",b1 ,"b2 :",b2,"b3 :",b3)
-
-         if(b1=="x" && b2=="x" && b3=="x" || b1=="o" && b2=="o" && b3=="o")
-        {
-            box1.classList.add("line-horizontal");
-            box2.classList.add("line-horizontal");
-            box3.classList.add("line-horizontal");
-            
-            if(b1=="x" & b2=="x" && b3 =="x"){
-                div.classList.add("line-fr")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-                //alert(`Player ❌ is Winner `);
-                //clear()
-            }
-            else if(b1=="o"&& b2=="o"&& b3=="o"){
-                div.classList.add("line-fr")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n} `;
-                //alert(`Player ⭕ is Winner `);
-                //clear()
-            }
-            console.log("b1 and b2 and b3")
-        }
-        else if(b4=="x" && b5=="x" && b6=="x" || b4=="o" && b5=="o" && b6=="o")
-        {
-            box4.classList.add("line-horizontal");
-            box5.classList.add("line-horizontal");
-            box6.classList.add("line-horizontal");
- 
-            if(b4=="x" & b5=="x" && b6 =="x"){
-                div.classList.add("line-sr")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-                //alert(`Player ❌ is Winner`);
-                //clear()
-            }
-            else if(b4=="o"&& b5=="o"&& b6=="o"){
-                div.classList.add("line-sr")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n} `;
-               // alert(`Player ⭕ is Winner `);
-               // clear()
-            }
-            console.log("b4 and b5 and b6")
-        }
-        else if(b7=="x" && b8=="x" && b9=="x" || b7=="o" && b8=="o" && b9=="o")
-        {
-            box7.classList.add("line-horizontal");
-            box8.classList.add("line-horizontal");
-            box9.classList.add("line-horizontal");
-            
-            if(b7=="x" & b8=="x" && b9 =="x"){
-                div.classList.add("line-tr")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-               // alert(`Player ❌ is Winner`);
-                //clear()
-            }
-            else if(b7=="o"&& b8=="o"&& b9=="o"){
-                div.classList.add("line-tr")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n}`;
-                //alert(`Player ⭕ is Winner `);
-                //clear()
-            }
-            console.log("b7 and b8 and b9")
-        }
-        else if(b1=="x" && b4=="x" && b7=="x" || b1=="o" && b4=="o" && b7=="o")
-        {
-            box1.classList.add("line-vertical");
-            box4.classList.add("line-vertical");
-            box7.classList.add("line-vertical");
-            
-            if(b1=="x" & b4=="x" && b7 =="x"){
-                div.classList.add("line-fc")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-                //alert(`Player ❌ is Winner `);
-                //clear()
-            }
-            else if(b1=="o"&& b4=="o"&& b7=="o"){
-                div.classList.add("line-fc")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n} `;
-                //alert(`Player ⭕ is Winner `);
-                //clear()
-            }
-            console.log("b1 and b4 and b7")
-        }
-        else if(b2=="x" && b5=="x" && b8=="x" || b2=="o" && b5=="o" && b8=="o")
-        {
-            box2.classList.add("line-vertical");
-            box5.classList.add("line-vertical");
-            box8.classList.add("line-vertical");
-            if(b2=="x" & b5=="x" && b8 =="x"){
-                div.classList.add("line-sc")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-               // alert(`Player ❌ is Winner `);
-                //clear()
-            }
-            else if(b2=="o"&& b5=="o"&& b8=="o"){
-                div.classList.add("line-sc")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n} `;
-               // alert(`Player ⭕ is Winner `);
-                //clear()
-            }
-            console.log("b2 and b5 and b8")
-        }
-        else if(b3=="x" && b6=="x" && b9=="x" || b3=="o" && b6=="o" && b9=="o")
-        {
-            box3.classList.add("line-vertical");
-            box6.classList.add("line-vertical");
-            box9.classList.add("line-vertical");
-            if(b3=="x" & b6=="x" && b9 =="x"){
-                div.classList.add("line-tc")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-               // alert(`Player ❌ is Winner `);
-               // clear()
-            }
-            else if(b3=="o"&& b6=="o"&& b9=="o"){
-                div.classList.add("line-tc")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n}`;
-                //alert(`Player ⭕ is Winner `);
-               // clear()
-            }
-            console.log("b3 and b6 and b9")
-        }
-        else if(b1=="x" && b5=="x" && b9=="x" || b1=="o" && b5=="o" && b9=="o")
-        {
-            box1.classList.add("line");
-            box5.classList.add("line");
-            box9.classList.add("line");
-            if(b1=="x" & b5=="x" && b9 =="x"){
-                div.classList.add("line-d1")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-                //alert(`Player ❌ is Winner `);
-                //clear()
-            }
-            else if(b1=="o"&& b5=="o"&& b9=="o"){
-                div.classList.add("line-d1")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n} `;
-               // alert(`Player ⭕ is Winner `);
-               // clear()
-            }
-            console.log("b1 and b5 and b9")
-        }
-        else if(b3=="x" && b5=="x" && b7=="x" || b3=="o" && b5=="o" && b7=="o")
-        {
-            box3.classList.add("line2");
-            box5.classList.add("line2");
-            box7.classList.add("line2");
-            if(b3=="x" & b5=="x" && b7 =="x"){
-                div.classList.add("line-d2")
-                c1.innerText =++m;
-                result.innerText = `Congratulations , Winner is ${n}`;
-               // alert(`Player ❌ is Winner `);
-                //clear()
-            }
-            else if(b3=="o"&& b5=="o"&& b7=="o"){
-                div.classList.add("line-d2")
-                c2.innerText =++y;
-                result.innerText = `Congratulations , Winner is ${n} `;
-                //alert(`Player ⭕ is Winner `);
-                //clear()
-            }
-            console.log("b3 and b5 and b7")
-        }
-        else if(!b1==" " && !b2==" " && !b3==" "&&!b4==" "&& !b5==" " &&!b6==" "&& !b7==" "&& !b8==" " &&!b9==" "){
-             result.innerText = `Draw The Match`;
-        }
-        //userGift()
-    }
     
-    function userGift(){
-        if(m<=5){
-            result.innerText = `Congratulations , Winner is ${n} you have win 👒 `;
-        }
-        else if(m<=10)
-        {
-            result.innerText = `Congratulations , Winner is ${n} you have win 🕶️`; 
+    const wins = [
+        { cells: [b1, b2, b3], line: "line-fr", boxes: [box1, box2, box3] },
+        { cells: [b4, b5, b6], line: "line-sr", boxes: [box4, box5, box6] },
+        { cells: [b7, b8, b9], line: "line-tr", boxes: [box7, box8, box9] },
+        { cells: [b1, b4, b7], line: "line-fc", boxes: [box1, box4, box7] },
+        { cells: [b2, b5, b8], line: "line-sc", boxes: [box2, box5, box8] },
+        { cells: [b3, b6, b9], line: "line-tc", boxes: [box3, box6, box9] },
+        { cells: [b1, b5, b9], line: "line-d1", boxes: [box1, box5, box9] },
+        { cells: [b3, b5, b7], line: "line-d2", boxes: [box3, box5, box7] }
+    ];
 
+    
+    for (let win of wins) {
+        if ((win.cells[0] === 'x' && win.cells[1] === 'x' && win.cells[2] === 'x') ||
+            (win.cells[0] === 'o' && win.cells[1] === 'o' && win.cells[2] === 'o')) {
+            
+            div.classList.add(win.line);
+            
+            if (win.cells[0] === 'x') {
+                c1.innerText = ++m;
+            } else {
+                c2.innerText = ++y;
+            }
+            
+            result.innerText = `Congratulations, Winner is ${n}!`;
+            disableGame();
+            userGift();
+            return; 
         }
-        else{
-             result.innerText = `Congratulations , Winner is ${n}`; 
-
-        }
-
-        if(y<=5){
-                result.innerText = `Congratulations , Winner is ${n} you have win 👒 `;
-                }
-                else if(y<=10)
-                {
-                   result.innerText = `Congratulations , Winner is ${n} you have win 🕶️`; 
-                }
-                else{
-                    result.innerText = `Congratulations , Winner is ${n} `;
-                }
     }
 
-    reset.addEventListener('click',()=>{
-      
-         box1.textContent = "";
-         box2.textContent = "";
-         box3.textContent = "";
-         box4.textContent = "";
-         box5.textContent = "";
-         box6.textContent = "";
-         box7.textContent = "";
-         box8.textContent = "";
-         box9.textContent = "";
+   
+    if (b1 && b2 && b3 && b4 && b5 && b6 && b7 && b8 && b9) {
+        result.innerText = 'Draw!';
+        disableGame();
+    }
 
-         b1="";
-         b2="";
-         b3="";
-         b4="";
-         b5="";
-         b6="";
-         b7="";
-         b8="";
-         b9="";
-         
-         box1.classList.remove("line","line-vertical","line-horizontal")
-         box2.classList.remove("line","line-vertical","line-horizontal")
-         box3.classList.remove("line","line-vertical","line-horizontal")
-         box4.classList.remove("line","line-vertical","line-horizontal")
-         box5.classList.remove("line","line-vertical","line-horizontal")
-         box6.classList.remove("line","line-vertical","line-horizontal")
-         box7.classList.remove("line","line-vertical","line-horizontal")
-         box8.classList.remove("line","line-vertical","line-horizontal")
-         box9.classList.remove("line","line-vertical","line-horizontal")
-         div.classList.remove("line-fr","line-sr","line-tr","line-fc","line-sc","line-tc","line-d1","line-d2")
-        result.innerText = "";
-    })
+    userGift();
+}
 
-     function clear(){
-         box1.textContent = "";
-         box2.textContent = "";
-         box3.textContent = "";
-         box4.textContent = "";
-         box5.textContent = "";
-         box6.textContent = "";
-         box7.textContent = "";
-         box8.textContent = "";
-         box9.textContent = "";
+function disableGame() {
+   
+    [box1, box2, box3, box4, box5, box6, box7, box8, box9].forEach(box => {
+        box.disabled = true;
+        box.style.pointerEvents = 'none'; 
+    });
+}
 
-         b1="";
-         b2="";
-         b3="";
-         b4="";
-         b5="";
-         b6="";
-         b7="";
-         b8="";
-         b9="";
-         
-         box1.classList.remove("line","line-vertical","line-horizontal")
-         box2.classList.remove("line","line-vertical","line-horizontal")
-         box3.classList.remove("line","line-vertical","line-horizontal")
-         box4.classList.remove("line","line-vertical","line-horizontal")
-         box5.classList.remove("line","line-vertical","line-horizontal")
-         box6.classList.remove("line","line-vertical","line-horizontal")
-         box7.classList.remove("line","line-vertical","line-horizontal")
-         box8.classList.remove("line","line-vertical","line-horizontal")
-         box9.classList.remove("line","line-vertical","line-horizontal")
-         div.classList.remove("line-fr","line-sr","line-tr","line-fc","line-sc","line-tc","line-d1","line-d2")
-         result.innerText = "";
-        }
+reset.addEventListener('click', () => {
+    [box1, box2, box3, box4, box5, box6, box7, box8, box9].forEach(box => {
+        box.textContent = '';
+        box.disabled = false;
+        box.style.pointerEvents = 'auto';
+    });
+
+    
+    b1 = b2 = b3 = b4 = b5 = b6 = b7 = b8 = b9 = '';
+    
+    div.classList.remove("line-fr", "line-sr", "line-tr", "line-fc", "line-sc", "line-tc", "line-d1", "line-d2");
+    result.innerText = '';
+});
+function userGift() {
+    let giftMessage = '';
+    
+    if (m === 5) {
+        giftMessage = ' 🎩 You unlocked a Hat!';
+    } else if (m === 10) {
+        giftMessage = ' 🕶️ You unlocked Sunglasses!';
+    } 
+    
+    else if (y === 5) {
+        giftMessage = ' 🎩 You unlocked a Hat!';
+    } else if (y === 10) {
+        giftMessage = ' 🕶️ You unlocked Sunglasses!';
+    } 
+    
+    result.innerText += giftMessage;
+}
+   
 
